@@ -5,10 +5,24 @@
 
     <title>Try angular</title>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+
+    <style>
+      .new-class{
+        font-size: 50px;
+      }
+
+      .other-class{
+        font-size: 30px;
+      }
+
+    </style>
   </head>
 
   <body>
-    <h1>hello, {{ name }}!</h1>
+    <h1 class='new-class' ng-class="{'other-class': name}">hello,
+      <span ng-if="name">{{ name }}</span>
+      <span ng-if="!name">world!</span>
+    </h1>
     <input type="text" ng-model="name">
   </body>
 
