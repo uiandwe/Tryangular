@@ -2,8 +2,8 @@
 
 angular.module('blogList', []).
     component('blogList', {
-        template: "<div  ><h1 class='new-class'>{{title}}</h1><button ng-click='someClickTest()'>click me</button></div>",
-        
+        //template: "<div  ><h1 class='new-class'>{{title}}</h1><button ng-click='someClickTest()'>click me</button></div>",
+        templateUrl: '/template/blog-list.html',
         controller: function($scope){
             console.log("!");
             $scope.title = "hi there"
