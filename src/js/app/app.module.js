@@ -3,8 +3,8 @@
 angular.module('try', [
     // external
     //'angularUtils.directives.dirPagination',
-    //'ngResource',
-    //'ngRoute',
+    'ngResource',
+    'ngRoute',
     //'ui.bootstrap',
     // internal
     //'blogDetail',
