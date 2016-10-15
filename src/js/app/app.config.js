@@ -15,7 +15,7 @@ angular.module('try').
             }).when("/about", {
                 templateUrl: "/templates/about.html"
             }).when("/blog/:id", {
-                template: "<blog-list></blog-list>"
+                template: "<blog-detail></blog-detail>"
             }).otherwise({
                 template: "Not Found"
             });

@@ -7,7 +7,7 @@ angular.module('try', [
     'ngRoute',
     //'ui.bootstrap',
     // internal
-    //'blogDetail',
+    'blogDetail',
     'blogList',
     //'confirmClick',
     //'tryNav',
