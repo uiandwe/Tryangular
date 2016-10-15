@@ -2,13 +2,13 @@
 
 angular.module('try', [
     // external
-    'angularUtils.directives.dirPagination',
-    'ngResource',
-    'ngRoute',
-    'ui.bootstrap',
+    //'angularUtils.directives.dirPagination',
+    //'ngResource',
+    //'ngRoute',
+    //'ui.bootstrap',
     // internal
-    'blogDetail',
+    //'blogDetail',
     'blogList',
-    'confirmClick',
-    'tryNav',
+    //'confirmClick',
+    //'tryNav',
 ]);
