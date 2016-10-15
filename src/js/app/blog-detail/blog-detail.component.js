@@ -3,7 +3,7 @@
 angular.module('blogDetail').
     component('blogDetail', {
         templateUrl: '/templates/blog-detail.html',
-        controller: function($routeParams, $scope){
+        controller: function($location, $routeParams, $scope){
 
             var blogItems = [
                 {title: "soem Title", id:1, description: "this si a book"},
@@ -15,6 +15,21 @@ angular.module('blogDetail').
 
             console.log($routeParams)
             $scope.title = "Blog " +$routeParams.id
+            $scope.notFound = true
+            angular.forEach(blogItems, function(blog){
+                if (blog.id == $routeParams.id){
+                    $scope.notFound = false;
+                    $scope.post = blog;
+                }
+
+            })
+
+            console.log($scope.post);
+
+            if ($scope.notFound){
+                console.log("Not found")
+                $location.path("/404")
+            }
 
     }
 });
