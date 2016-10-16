@@ -3,33 +3,44 @@
 angular.module('blogDetail').
     component('blogDetail', {
         templateUrl: '/templates/blog-detail.html',
-        controller: function($location, $routeParams, $scope){
-
-            var blogItems = [
-                {title: "soem Title", id:1, description: "this si a book"},
-                {title: " Title", id:2, description: "thiasdfsadfook"},
-                {title: "adf Title", id:3, description: "asdf sad fsthis si a book"},
-                {title: "123  asdf Title", id:4, description: "12 312 31 2this si a book"},
-            ]
+        controller: function($http, $location, $routeParams, $scope){
 
 
-            console.log($routeParams)
-            $scope.title = "Blog " +$routeParams.id
-            $scope.notFound = true
-            angular.forEach(blogItems, function(blog){
-                if (blog.id == $routeParams.id){
-                    $scope.notFound = false;
-                    $scope.post = blog;
-                }
 
-            })
+            $http.get("/json/posts.json").then(successCallback, errorCallback);
 
-            console.log($scope.post);
+            function successCallback(response, status, config, statusText){
+                $scope.notFound = true;
+
+                var blogItems = response.data;
+                $scope.posts = blogItems;
+
+                angular.forEach(blogItems, function(blog){
+
+                    if (blog.id == $routeParams.id){
+                        $scope.notFound = false;
+                        $scope.post = blog;
+                    }
+                })
+
+            }
+
+            function errorCallback(response, status, config, statusText){
+
+            }
 
             if ($scope.notFound){
-                console.log("Not found")
+                console.log("Not found");
                 $location.path("/404")
             }
+
+
+            console.log($routeParams);
+
+
+
+
+
 
     }
 });
