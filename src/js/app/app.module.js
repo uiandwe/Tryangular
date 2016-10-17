@@ -9,6 +9,6 @@ angular.module('try', [
     // internal
     'blogDetail',
     'blogList',
-    //'confirmClick',
+    'confirmClick',
     //'tryNav',
 ]);
