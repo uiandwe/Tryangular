@@ -5,27 +5,37 @@
             <p>{{post.description}}</p>
         </div>
 
+
         <h3>comment </h3>
+        <div class="row">
+            <div class="col-sm-6">
+                <input type="text" class="form-control"  ng-model="query" >
 
-        <ul>
-            <li>
-                <input type="text" ng-model="query" >
-            </li>
-            <li ng-repeat="comment in post.comments | filter : query ">
-                {{ comment.text }}
-                <a href="#" ng-click="deleteComment(comment)">delete</a>
+                <ul>
+                    <li ng-repeat="comment in post.comments | filter : query ">
+                        {{ comment.text }}
+                        <a href="#" ng-click="deleteComment(comment)">delete</a>
 
 
-            </li>
-        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
 
-        <p style='color:red;' ng-if="reply.text">{{ reply.text}}</p>
-        <form ng-submit="addReply()">
-            <input type='hidden' ng-model='reply.id'>
-            <textarea ng-model='reply.text'>
+        <hr/>
 
-            </textarea>
-            <input type="submit">
-        </form>
+        <div class="row">
+            <div class="col-sm-6">
+                <p style='color:red;' ng-if="reply.text">{{ reply.text}}</p>
+                <form ng-submit="addReply()">
+                    <input type='hidden' ng-model='reply.id'>
+                    <textarea class="form-control" ng-model='reply.text'>
+
+                    </textarea>
+                    <input class="btn btn-default" type="submit">
+                </form>
+            </div>
+        </div>
     </div>
 </div>
+
