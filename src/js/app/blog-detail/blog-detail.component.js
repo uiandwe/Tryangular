@@ -17,6 +17,10 @@ angular.module('blogDetail').
                 })
             });
 
+            $scope.deleteComment = function(comment){
+                $scope.post.comments.splice(comment, 1)
+            }
+
             $scope.addReply = function(){
                 console.log($scope.reply)
                 $scope.post.comments.push($scope.reply);
