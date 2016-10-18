@@ -1,7 +1,8 @@
 <h1>Blog List </h1>
 <ul ng-if='items.length > 0 '>
     <li ng-repeat="item in items ">
-        <a ng-href='/blog/{{item.id }}' confirm-click='are y sure?' confirmed-click="/blog/{{item.id }}"/>{{ item.title }}</a>
+        <a href='#' ng-click='goToItem(item)'>{{ item.title }}</a>
+        <!--<a ng-href='/blog/{{item.id }}' confirm-click='are y sure?' confirmed-click="/blog/{{item.id }}"/>{{ item.title }}</a>-->
 
     </li>
 </ul>

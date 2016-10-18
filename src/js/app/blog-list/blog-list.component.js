@@ -3,23 +3,15 @@
 
 angular.module('blogList', []).
     component('blogList', {
-        //template: "<div  ><h1 class='new-class'>{{title}}</h1><button ng-click='someClickTest()'>click me</button></div>",
         templateUrl: '/templates/blog-list.html',
-        controller: function(Post, $routeParams, $scope){
+        controller: function(Post, $location, $routeParams, $rootScope, $scope){
 
-
+            $scope.goToItem = function(post){
+                $location.path("/blog/"+ post.id)
+            }
 
             $scope.items = Post.query();
 
-
-            $scope.title = "hi there"
-            $scope.clicks = 0
-            $scope.someClickTest = function(){
-                console.log("clicked");
-
-                $scope.clicks += 1
-                $scope.title = "clicke" + $scope.clicks + " times";
-            }
             
         }
     });
