@@ -26,7 +26,7 @@ angular.module('blogList', []).
                 }
                 else{
                     if($scope.loadingQuery ){
-                        setupcol($scope.items, 2);
+                        setupCol($scope.items, 2);
                         $scope.loadingQuery  = false;
                     }
 
