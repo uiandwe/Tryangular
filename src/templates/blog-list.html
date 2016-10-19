@@ -8,7 +8,7 @@
 <div class="row" dir-paginate="items in colItems | itemsPerPage : 4 | filter: query">
     <div class="{{ cssClass }}" ng-repeat="post in items ">
         <div class="thumbnail">
-          <img src="..." alt="...">
+          <img ng-src="{{ post.image }}" alt="...">
           <div class="caption">
             <h3>{{ post.title }}</h3>
             <p>{{ post.text }} {{ post.publishDate}}</p>
