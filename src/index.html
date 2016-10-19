@@ -33,15 +33,18 @@
     <script src='/js/app/utils/confirm-click/confirm-click.directive.js' ></script>
 
 
+    <script src='/js/app/utils/try-nav/try-nav.module.js' ></script>
+    <script src='/js/app/utils/try-nav/try-nav.directive.js' ></script>
+
 
   </head>
   <body>
-      <nav class="container">
-        <h1>Us</h1>
-      </nav>
+      <div class="container">
+          <try-nav></try-nav>
 
 
-     <div class="container" ng-view>
+          <div class="container" ng-view>
+       </div>
 
     </div>
   </body>
