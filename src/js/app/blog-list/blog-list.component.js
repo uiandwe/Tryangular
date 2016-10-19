@@ -10,11 +10,42 @@ angular.module('blogList', []).
                 $location.path("/blog/"+ post.id)
             }
 
-            $scope.items = Post.query(function(data){
-                var numCols = 6;
-                $scope.cssClass = 'col-sm-'+ numCols;
+            $scope.changeCols = function(number){
+                $scope.numCols = 2;
+                if(angular.isNumber(number)){
+                    $scope.numCols = number;
+                }
+                setupCol($scope.items, $scope.numCols);
+            }
+
+            $scope.loadingQuery = false;
+            $scope.$watch(function(){
+                if($scope.query){
+                    $scope.loadingQuery  = true;
+                    $scope.cssClass = 'col-sm-12'
+                }
+                else{
+                    if($scope.loadingQuery ){
+                        setupcol($scope.items, 2);
+                        $scope.loadingQuery  = false;
+                    }
+
+                }
+            })
+
+            function setupCol(data, number){
+                $scope.numCols = 2;
+                if(angular.isNumber(number)){
+                    $scope.numCols = number;
+                }
+
+                $scope.cssClass = 'col-sm-'+ (12/$scope.numCols);
                 $scope.items = data;
-                $scope.colItems = chunkArrayInGroups(data, numCols)
+                $scope.colItems = chunkArrayInGroups(data, $scope.numCols)
+            }
+
+            Post.query(function(data){
+                setupCol(data, 6)
             }, function(errorData){
 
             });

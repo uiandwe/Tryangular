@@ -1,4 +1,22 @@
-<h1>Blog List </h1>
+<h1>Blog List <small><a href="#" ng-click="changeCols(4)">change</a></small> </h1>
+
+<div class="col-sm-6">
+    <input type="text" ng-model="query" class="form-control">
+    <span ng-if='items.length == 0 '> Post comming soon</span>
+</div>
+<div ng-repeat="items in colItems ">
+        <div class="{{ cssClass }}" ng-repeat="post in items | filter: query">
+            <div class="thumbnail">
+              <img src="..." alt="...">
+              <div class="caption">
+                <h3>{{ post.title }}</h3>
+                <p>{{ post.text }} {{ post.publishDate}}</p>
+
+                <p><a href="#" class="btn btn-primary" ng-click='goToItem(post)' role="button">view</a></p>
+              </div>
+            </div>
+          </div>
+    </div>
 <!--
 <ul ng-if='items.length > 0 '>
     <li ng-repeat="item in items ">
@@ -9,18 +27,4 @@
 </ul>
 -->
 
-<span ng-if='items.length == 0 '> Post comming soon</span>
 
-<div ng-repeat="items in colItems ">
-    <div class="{{ cssClass }}" ng-repeat="post in items ">
-        <div class="thumbnail">
-          <img src="..." alt="...">
-          <div class="caption">
-            <h3>{{ post.title }}</h3>
-            <p>{{ post.text }} {{ post.publishDate}}</p>
-
-            <p><a href="#" class="btn btn-primary" ng-click='goToItem(post)' role="button">view</a></p>
-          </div>
-        </div>
-      </div>
-</div>
