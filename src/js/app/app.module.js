@@ -2,7 +2,7 @@
 
 angular.module('try', [
     // external
-    //'angularUtils.directives.dirPagination',
+    'angularUtils.directives.dirPagination',
     'ngResource',
     'ngRoute',
     //'ui.bootstrap',

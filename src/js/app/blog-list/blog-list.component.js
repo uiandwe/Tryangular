@@ -45,7 +45,7 @@ angular.module('blogList', []).
             }
 
             Post.query(function(data){
-                setupCol(data, 6)
+                setupCol(data, 4)
             }, function(errorData){
 
             });
