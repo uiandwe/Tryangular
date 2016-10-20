@@ -6,6 +6,15 @@ angular.module('blogList', []).
         templateUrl: '/templates/blog-list.html',
         controller: function(Post, $location, $routeParams, $rootScope, $scope){
 
+            //console.log($location.search());
+            var q = $location.search().q;
+            //console.log(q)
+
+            if (q){
+                $scope.query = q;
+            }
+
+
             $scope.goToItem = function(post){
                 $location.path("/blog/"+ post.id)
             }
